@@ -139,7 +139,13 @@ cite { font-style: italic; }
 
 /* Narrow / tall screens: anchor crop on her, put the text in the sky at the top */
 @media (max-width: 760px) {
-  .hero__img { object-position: 75% 40%; }
+  .hero__img { object-position: 72% 48%; }
+  /* The desktop overlay fades left-to-right, which doesn't suit a centered,
+     full-width mobile layout — use a top-down fade instead, with a slightly
+     warmer/olive tint so the pale sky reads as intentional, not washed out. */
+  .hero::before {
+    background: linear-gradient(180deg, rgba(22, 26, 16, 0.5) 0%, rgba(22, 26, 16, 0.26) 42%, rgba(22, 26, 16, 0) 65%);
+  }
   .hero__text {
     position: static;
     transform: none;
